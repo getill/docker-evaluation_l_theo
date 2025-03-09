@@ -1,0 +1,26 @@
+services:
+  database:
+    image: mysql:8
+    container_name: database
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - ./data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+  client:
+    build: ./client
+    container_name: php_client
+    restart: always
+    depends_on:
+      - database
+    environment:
+      DB_HOST: database
+      DB_USER: ${MYSQL_USER}
+      DB_PASSWORD: ${MYSQL_PASSWORD}
+      DB_NAME: ${MYSQL_DATABASE}
+    ports:
+      - "8088:80"
+    volumes:
+      - ./client:/var/www/html
