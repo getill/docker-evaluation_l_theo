@@ -16,6 +16,17 @@ try {
     $sql = "SELECT * FROM article";
     $stmt = $conn->query($sql);
 
+    $env = getenv('ENV'); // Cela récupère la variable d'environnement
+
+    if ($env === 'dev') {
+        echo "Environnement de développement";
+        error_reporting(E_ALL); // Activer tous les rapports d'erreur
+        ini_set('display_errors', 1); // Afficher les erreurs
+    } else {
+        error_reporting(0); // Désactiver l'affichage des erreurs
+        ini_set('display_errors', 0); // Ne pas afficher les erreurs
+    }
+
     // Afficher les résultats dans une table HTML
     echo "<html><body><table border='1'><tr><th>ID</th><th>Title</th><th>Body</th></tr>";
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {

@@ -1,0 +1,26 @@
+services:
+  database:
+    environment:
+      MYSQL_ROOT_PASSWORD: a-strong-password
+      MYSQL_USER: db_client
+      MYSQL_PASSWORD: another-strong-password
+      MYSQL_DATABASE: docker_doc
+    networks:
+      - my_network
+
+  client:
+    environment:
+      DB_USER: db_client
+      DB_PASSWORD: another-strong-password
+      DB_NAME: docker_doc
+      DB_ROOT_PASSWORD: a-strong-password
+    build:
+      context: ./client
+    volumes:
+      - ./client:/var/www/html
+    networks:
+      - my_network
+    command: "php -S 0.0.0.0:80 -t /var/www/html"
+
+networks:
+  my_network:
