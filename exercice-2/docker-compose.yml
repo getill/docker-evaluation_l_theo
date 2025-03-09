@@ -10,6 +10,8 @@ services:
       - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - "3306:3306"
+    networks:
+      - my_network
   client:
     build: ./client
     container_name: php_client
@@ -21,7 +23,13 @@ services:
       DB_USER: ${MYSQL_USER}
       DB_PASSWORD: ${MYSQL_PASSWORD}
       DB_NAME: ${MYSQL_DATABASE}
+      DB_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     ports:
       - "8088:80"
     volumes:
       - ./client:/var/www/html
+    networks:
+      - my_network
+
+networks:
+  my_network:

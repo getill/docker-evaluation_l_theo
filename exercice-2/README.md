@@ -8,3 +8,7 @@ Affichage des tables : SHOW TABLES;
 Afficher le contenu de la table article : SELECT \* FROM article;
 
 3 docker compose exec database mysqldump -u root -p my_database > dump.sql
+
+4 Projet initialement configuré dans cette optique
+
+5 URL locale : http://localhost:8088/
