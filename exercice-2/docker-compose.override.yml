@@ -5,25 +5,27 @@ services:
       MYSQL_USER: db_client
       MYSQL_PASSWORD: password
       MYSQL_DATABASE: docker_doc_dev
-    build:
-      context: .
     networks:
       - my_network
 
   client:
     environment:
+      DB_HOST: database
       DB_USER: db_client
       DB_PASSWORD: password
       DB_NAME: docker_doc_dev
-      DB_ROOT_PASSWORD: root
+      DB_ROOT_PASSWORD: rootpassword
       DEBUG: "true"
+      ENV: "dev"
     build:
       context: ./client
     volumes:
       - ./client:/var/www/html
+    ports:
+      - "8088:80"
     networks:
       - my_network
-    command: "php -S 0.0.0.0:8088 -t /var/www/html"
+    command: "php -S 0.0.0.0:80 -t /var/www/html"
 
 networks:
   my_network:

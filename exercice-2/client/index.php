@@ -16,15 +16,15 @@ try {
     $sql = "SELECT * FROM article";
     $stmt = $conn->query($sql);
 
-    $env = getenv('ENV'); // Cela récupère la variable d'environnement
+    $env = getenv('ENV');
 
     if ($env === 'dev') {
         echo "Environnement de développement";
-        error_reporting(E_ALL); // Activer tous les rapports d'erreur
-        ini_set('display_errors', 1); // Afficher les erreurs
+        error_reporting(E_ALL);
+        ini_set('display_errors', 1);
     } else {
-        error_reporting(0); // Désactiver l'affichage des erreurs
-        ini_set('display_errors', 0); // Ne pas afficher les erreurs
+        error_reporting(0);
+        ini_set('display_errors', 0);
     }
 
     // Afficher les résultats dans une table HTML
