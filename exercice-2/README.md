@@ -6,8 +6,9 @@
 
   - Executez Docker Desktop
   - Dans un terminal entrez l'une des deux commandes :
-    Mode dev
-    docker-compose -f docker-compose.yml -f docker-compose.override.yml up --build
+
+          Mode dev
+                docker-compose -f docker-compose.yml -f docker-compose.override.yml up --build
 
           Mode prod
               docker-compose -f docker-compose.yml -f docker-compose.prod.yml up --build
@@ -18,10 +19,12 @@
   Si vous rencontrez des problèmes de connexion, il se peut que celà soit dû au fichier .env innexistant :
 
   - Créez un fichier ".env" à la racine de votre projet puis ajoutez les variables suivantes :
+
     MYSQL*ROOT_PASSWORD=\_Insérez votre mdp root*
     MYSQL*DATABASE=\_Insérez votre nom de base de données*
     MYSQL*USER=\_Insérez votre nom d'utilisateur*
     MYSQL*PASSWORD=\_Insérez votre mdp*
+
   - Pensez à ajouter le .env dans le .gitignore
 
 # Réponses aux questions
