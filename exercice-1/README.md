@@ -22,7 +22,11 @@ docker run démarre un nouveau conteneur, docker exec lance une commande dans un
 
 ### 6
 
-Oui, avec docker exec.
+Oui, avec
+
+```bash
+docker exec.
+```
 
 ### 7
 
@@ -34,7 +38,11 @@ La commande lance un conteneur en arrière-plan (-d), mappant le port 9001 de l�
 
 ### 9
 
-avec la commande docker stop $(docker ps -q)
+avec la commande
+
+```bash
+docker stop $(docker ps -q)
+```
 
 ### 10
 

@@ -40,16 +40,47 @@ Voir fichiers
 
 ### 2
 
-Execution de bash : docker exec -it database bash
-Connection à MYSQL : mysql -u root -p
-Afficher les bases de données : SHOW DATABASES;
-Utilisation de la base docker_doc_dev : USE docker_doc_dev;
-Affichage des tables : SHOW TABLES;
-Afficher le contenu de la table article : SELECT \* FROM article;
+Execution de bash :
+
+```bash
+docker exec -it database bash
+```
+
+Connection à MYSQL :
+
+```bash
+mysql -u root -p
+```
+
+Afficher les bases de données :
+
+```bash
+SHOW DATABASES;
+```
+
+Utilisation de la base docker_doc_dev :
+
+```bash
+USE docker_doc_dev;
+```
+
+Affichage des tables :
+
+```bash
+SHOW TABLES;
+```
+
+Afficher le contenu de la table article :
+
+```bash
+SELECT \* FROM article;
+```
 
 ### 3
 
+```bash
 docker compose exec database mysqldump -u root -p my_database > dump.sql
+```
 
 ### 4
 
@@ -61,15 +92,25 @@ URL locale : http://localhost:8088/
 
 ### 6
 
-Voir docker-compose "volumes: - ./client:/var/www/html"
+Voir docker-compose
+
+```bash
+volumes: - ./client:/var/www/html
+```
 
 ### 7
 
 Pour démarrer l'environnement de dev :
+
+```bash
 docker-compose -f docker-compose.yml -f docker-compose.dev.yml up --build
+```
 
 Pour démarrer l'environnement de prod :
+
+```bash
 docker-compose -f docker-compose.yml -f docker-compose.prod.yml up --build
+```
 
 ### 8
 
